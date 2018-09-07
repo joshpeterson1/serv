@@ -46,3 +46,8 @@ function findr() {
 			}
 	}
 }
+
+function bigTest() {
+	console.log("Hey it works");
+
+}
