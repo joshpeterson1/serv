@@ -46,7 +46,7 @@ function findr() {
 			}
 	}
 }
-setInterval(findr, 1000);
+var findInt = setInterval(findr, 1000);
 
 function memberRank() {
 	var rank = getElementByXpath("//strong[contains(text(),'Rank')]/parent::*");
