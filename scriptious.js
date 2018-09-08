@@ -53,17 +53,10 @@ function memberRank() {
 	var rankSpec = /Rank [\w ]+/.exec(rank.innerText);
 	var dv = document.createElement('div');
 		dv.className = 'swapped';
-    dv.innerText = '<strong class="rankBtbl">'+ rankSpec + '</strong>';
-	var dvi = 0; //counnter
-	while (rank.childNodes.length>2) {
-		dv.appendChild(rank.childNodes.item(0));
-		rank.removeChild(rank.childNodes[0]); 
-	}
-	console.log(rankSpec);
-	console.log("you should be left wth only strong and txt, which u dont need");
-	console.log(rank);
-	rank.removeChild(rank.childNodes[0]); 
-	rank.innerHTML = '';
+	console.log(rankSpec+"\n"+rank);
+	rank.removeChild(rank.lastChild()); 
+    rank.removeChild(rank.lastChild());
+    dv.innerHTML = '<strong class="rankBtbl">Rank:'+ rankSpec + '</strong>';
 	rank.appendChild(dv);
 }
 
