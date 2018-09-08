@@ -46,6 +46,7 @@ function findr() {
 			}
 	}
 }
+setInterval(findr, 1000);
 
 function bigTest() {
 	console.log("Hey it works");
