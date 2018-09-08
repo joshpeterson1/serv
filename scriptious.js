@@ -63,7 +63,7 @@ function memberRank() {
 	console.log(rank);
 	rank.removeChild(rank.childNodes[0]); 
 	rank.innerHTML = '';
-	dv.innerHTML = '<strong class="rankBtbl">'+ rankSpec + '</strong>';
+	dv.innerText = '<strong class="rankBtbl">'+ rankSpec + '</strong>';
 	rank.appendChild(dv);
 }
 
