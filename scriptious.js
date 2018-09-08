@@ -62,7 +62,7 @@ function memberRank() {
 	console.log("you should be left wth only strong and txt, which u dont need");
 	console.log(rank);
 	rank.removeChild(rank.childNodes[0]); 
-	rank.removeChild(rank.childNodes[0]); 
+	rank.innerHTML = '';
 	rank.appendChild(dv);
 	rank.appendChild('<strong class="rankBtbl">'+ rankSpec + '</strong>');
 }
