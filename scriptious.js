@@ -53,6 +53,7 @@ function memberRank() {
 	var rankSpec = /Rank [\w ]+/.exec(rank.innerText);
 	var dv = document.createElement('div');
 		dv.className = 'swapped';
+    dv.innerText = '<strong class="rankBtbl">'+ rankSpec + '</strong>';
 	var dvi = 0; //counnter
 	while (rank.childNodes.length>2) {
 		dv.appendChild(rank.childNodes.item(0));
@@ -63,7 +64,6 @@ function memberRank() {
 	console.log(rank);
 	rank.removeChild(rank.childNodes[0]); 
 	rank.innerHTML = '';
-	dv.innerText = '<strong class="rankBtbl">'+ rankSpec + '</strong>';
 	rank.appendChild(dv);
 }
 
