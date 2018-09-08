@@ -48,6 +48,25 @@ function findr() {
 }
 setInterval(findr, 1000);
 
+function memberRank() {
+	var rank = getElementByXpath("//strong[contains(text(),'Rank')]/parent::*");
+	var rankSpec = /Rank [\w ]+/.exec(rank.innerText);
+	var dv = document.createElement('div');
+		dv.className = 'swapped';
+	var dvi = 0; //counnter
+	while (rank.childNodes.length>2) {
+		dv.appendChild(rank.childNodes.item(0));
+		rank.removeChild(rank.childNodes[0]); 
+	}
+	console.log(rankSpec);
+	console.log("you should be left wth only strong and txt, which u dont need");
+	console.log(rank);
+	rank.removeChild(rank.childNodes[0]); 
+	rank.removeChild(rank.childNodes[0]); 
+	rank.appendChild(dv);
+	rank.appendChild('<strong class="rankBtbl">'+ rankSpec + '</strong>');
+}
+
 function bigTest() {
 	console.log("Hey it works");
 
