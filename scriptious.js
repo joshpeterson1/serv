@@ -6,6 +6,12 @@
 function getElementByXpath(path) {
   return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 }
+//CAMELIZE: converts strings to camelcase. (removes spaces)
+function camelize(str) {
+  return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(letter, index) {
+    return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
+  }).replace(/\s+/g, '');
+}
 
 
 //FINDER: Finds and tags member ranks. Also adds No Rank.
@@ -58,8 +64,9 @@ function memberRank() {
 	var rank = getElementByXpath("//strong[contains(text(),'Rank')]/parent::*");
     var regMatch = /(?:rank) (\w+)/gi
 	var rankSpec = regMatch.exec(rank.innerText);
+    var cssRank = camelize(rankSpec[1]);
 	var dv = document.createElement('div');
-		dv.className = 'swapped';
+		dv.className = cssRank;
 	console.log(rankSpec+"\n"+rank);
 	rank.removeChild(rank.lastChild); 
     rank.removeChild(rank.lastChild);
