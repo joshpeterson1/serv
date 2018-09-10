@@ -66,11 +66,10 @@ function memberRank() {
 	var rankSpec = regMatch.exec(rank.innerText);
     var cssRank = camelize(rankSpec[1]);
 	var dv = document.createElement('div');
-		dv.className = cssRank;
 	console.log(rankSpec+"\n"+rank);
 	rank.removeChild(rank.lastChild); 
     rank.removeChild(rank.lastChild);
-    dv.innerHTML = '<strong class="rankBtbl">Rank: '+ rankSpec[1] + '</strong>';
+    dv.innerHTML = '<strong class="'+cssRank+'">Rank: '+ rankSpec[1] + '</strong>';
 	rank.appendChild(dv);
 }
 
