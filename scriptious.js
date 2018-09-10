@@ -50,7 +50,7 @@ var findInt = setInterval(findr, 1000);
 
 function memberRank() {
 	var rank = getElementByXpath("//strong[contains(text(),'Rank')]/parent::*");
-	var rankSpec = /Rank [\w ]+/.exec(rank.innerText);
+	var rankSpec = /(?:Rank) [\w ]+/.exec(rank.innerText);
 	var dv = document.createElement('div');
 		dv.className = 'swapped';
 	console.log(rankSpec+"\n"+rank);
