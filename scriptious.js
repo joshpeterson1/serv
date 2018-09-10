@@ -54,8 +54,8 @@ function memberRank() {
 	var dv = document.createElement('div');
 		dv.className = 'swapped';
 	console.log(rankSpec+"\n"+rank);
-	rank.removeChild(rank.lastChild()); 
-    rank.removeChild(rank.lastChild());
+	rank.removeChild(rank.lastChild); 
+    rank.removeChild(rank.lastChild);
     dv.innerHTML = '<strong class="rankBtbl">Rank:'+ rankSpec + '</strong>';
 	rank.appendChild(dv);
 }
