@@ -1,8 +1,14 @@
+//This is a collection of crappy scripts to be used for local Injection
+//Made by JP with probably terrible practices to be improved as time goes on
+
+
+//GET ELEMENT BY XPATH: returns element when supplied xpath
 function getElementByXpath(path) {
   return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 }
 
 
+//FINDER: Finds and tags member ranks. Also adds No Rank.
 function findr() {
 	
 	var myEles = document.getElementsByTagName('table');
@@ -46,8 +52,10 @@ function findr() {
 			}
 	}
 }
-var findInt = setInterval(findr, 1000);
 
+
+
+//MEMBER RANK: For Individual Ticket View: Color Codes Rank
 function memberRank() {
 	var rank = getElementByXpath("//strong[contains(text(),'Rank')]/parent::*");
 	var rankSpec = /(?:Rank) [\w ]+/.exec(rank.innerText);
@@ -58,6 +66,19 @@ function memberRank() {
     rank.removeChild(rank.lastChild);
     dv.innerHTML = '<strong class="rankBtbl">Rank:'+ rankSpec + '</strong>';
 	rank.appendChild(dv);
+}
+
+
+//Interval Shit: Shitty, 1 at a time per page.
+var Int;
+function loopMe(meth) {//Starts looping a method every second 
+    Int = setInterval(meth, 1000);
+}
+function loopMe(meth, time) {//Starts looping a method every $time Seconds 
+    Int = setInterval(meth, time);
+}
+function clearLoop() {//Clears Int interval
+    clearInterval(Int);
 }
 
 function bigTest() {
