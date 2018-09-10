@@ -56,7 +56,7 @@ function findr() {
 //MEMBER RANK: For Individual Ticket View: Color Codes Rank
 function memberRank() {
 	var rank = getElementByXpath("//strong[contains(text(),'Rank')]/parent::*");
-    var regMatch = /(?:rank) (\w+)/gi
+    var regMatch = /(?:rank)( \w+)/gi
 	var rankSpec = regMatch.exec(rank.innerText);
 	var dv = document.createElement('div');
 		dv.className = 'swapped';
