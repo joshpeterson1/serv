@@ -90,3 +90,38 @@ function bigTest() {
 	console.log("Hey it works");
 
 }
+function reading() {
+var ticketViewRegex = /\/support-tickets$/;
+var memberViewRegex = /\/support-tickets\/\d+$/;
+var currPathName = window.location.pathname;
+var readingInt;
+
+    if (ticketViewRegex.test(currPathName)) {
+        //alert('T View');
+        try {
+            clearInterval(readingInt);
+        } catch(err) {
+            //will handle errors
+            console.log('looks like no int was running');
+        } finally {
+            readingInt = setInterval(findr, 1000);
+        }
+    } else if (memberViewRegex.test(currPathName)) {
+        //alert('M View');
+        try {
+            clearInterval(readingInt);
+        } catch(err) {
+            //will handle errors
+            console.log('looks like no int was running');
+        } finally {
+            try {
+                readingInt = setInterval(memberRank, 1000);
+            } catch(err) {
+                //will handle errors
+                console.log('looks like memberRank already ran...');
+            } 
+        }
+    } else {
+        //alert ('whoops!')
+    }
+}

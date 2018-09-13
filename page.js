@@ -1,7 +1,7 @@
 //Page Determination
 
 
-function whatPage() {
+/*function whatPage() {
 	var host = window.location.toString();
 	//var pathName = window.location.pathname;
 	var regex = /(?:https?:\/\/)(?:adminv2\.bitclubnetwork\.com)(\/support\-tickets)(\/\d+$)?/;
@@ -27,45 +27,46 @@ function whatPage() {
 			}
 		
 
-}
+}*/
 
 
 //* Match pathnames via 2 separate variables for my 2 methods so far (memberRank and findr)
 
 //var ripInt = setInterval(ripper, 1000);
 //* This works!
-function test() {
+function reading() {
 var ticketViewRegex = /\/support-tickets$/;
 var memberViewRegex = /\/support-tickets\/\d+$/;
 var currPathName = window.location.pathname;
+var readingInt;
 
 	if (ticketViewRegex.test(currPathName)) {
-		alert('T View');
+		//alert('T View');
 		try {
-			clearInterval(pageInt);
+			clearInterval(readingInt);
 		} catch(err) {
 			//will handle errors
 			console.log('looks like no int was running');
 		} finally {
-			pageInt = setInterval(findr, 1000);
+			readingInt = setInterval(findr, 1000);
 		}
 	} else if (memberViewRegex.test(currPathName)) {
-		alert('M View');
+		//alert('M View');
 		try {
-			clearInterval(pageInt);
+			clearInterval(readingInt);
 		} catch(err) {
 			//will handle errors
 			console.log('looks like no int was running');
 		} finally {
 			try {
-				pageInt = setInterval(memberRank, 1000);
+				readingInt = setInterval(memberRank, 1000);
 			} catch(err) {
 				//will handle errors
 				console.log('looks like memberRank already ran...');
 			} 
 		}
 	} else {
-		alert ('whoops!')
+		//alert ('whoops!')
 	}
 }
 
@@ -81,12 +82,12 @@ var currPathName = window.location.pathname;
 //Sample Try Catch
 /*
 try {
-	clearInterval(pageInt);
+	clearInterval(readingInt);
 } catch(err) {
 	//will handle errors
 	console.log('looks like no int was running');
 } finally {
-	pageInt = setInterval(findr, 1000);
+	readingInt = setInterval(findr, 1000);
 }
 
 */
