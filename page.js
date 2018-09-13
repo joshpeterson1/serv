@@ -2,16 +2,16 @@
 
 
 function whatPage() {
-	var host = window.location.host;
-	var pathName = window.location.pathName;
-	var ticketView = "\/support-tickets\/";
-	var memberView = "\/support-tickets\/\d+$"; //Add regex to compare
+	var host = window.location.toString();
+	//var pathName = window.location.pathname;
+	var regex = /(?:https?:\/\/)(?:adminv2\.bitclubnetwork\.com)(\/support\-tickets)(\/\d+$)?/;
+	var match = host.match(regex);
 
-	if (pathName = ticketView) {
-		console.log("looks like ticket view");
-	} else if (pathName = memberView) {
-		console.log("looks like member view");
+	if (match[2] == null) {
+		alert("looks like ticket view");
+	} else if (match.length == 3) {
+		alert("looks like member view");
 	} else {
-		console.log("looks like you messed up");
+		alert("looks like you messed up");
 	}
 }
