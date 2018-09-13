@@ -30,13 +30,27 @@ function whatPage() {
 }
 
 
-
+//* Match pathnames via 2 separate variables for my 2 methods so far (memberRank and findr)
 
 //var ripInt = setInterval(ripper, 1000);
+//* This works!
+function test() {
+var ticketViewRegex = /\/support-tickets$/;
+var memberViewRegex = /\/support-tickets\/\d+$/;
+var currPathName = window.location.pathname;
+
+if (ticketViewRegex.test(currPathName)) {
+	alert('T View');
+} else if (memberViewRegex.test(currPathName)) {
+	alert('M View');
+} else {
+	alert ('whoops!')
+}
+}
 
 
-
-
+//Need to get Try Catch down. When memberRank is ran twice it throws an error. I need to handle that,
+//also gonna need to clear Intervals that might no exist so i'll need to handle those errors as well.
 
 //set interval for page checker
 //page checker sets method intervals
