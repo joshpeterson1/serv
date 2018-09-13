@@ -8,10 +8,10 @@ function whatPage() {
 	var memberView = "\/support-tickets\/\d+$"; //Add regex to compare
 
 	if (pathName = ticketView) {
-		system.println("looks like ticket view");
+		console.log("looks like ticket view");
 	} else if (pathName = memberView) {
-		system.println("looks like member view");
+		console.log("looks like member view");
 	} else {
-		system.println("looks like you messed up");
+		console.log("looks like you messed up");
 	}
 }
