@@ -39,13 +39,34 @@ var ticketViewRegex = /\/support-tickets$/;
 var memberViewRegex = /\/support-tickets\/\d+$/;
 var currPathName = window.location.pathname;
 
-if (ticketViewRegex.test(currPathName)) {
-	alert('T View');
-} else if (memberViewRegex.test(currPathName)) {
-	alert('M View');
-} else {
-	alert ('whoops!')
-}
+	if (ticketViewRegex.test(currPathName)) {
+		alert('T View');
+		try {
+			clearInterval(pageInt);
+		} catch(err) {
+			//will handle errors
+			console.log('looks like no int was running');
+		} finally {
+			pageInt = setInterval(findr, 1000);
+		}
+	} else if (memberViewRegex.test(currPathName)) {
+		alert('M View');
+		try {
+			clearInterval(pageInt);
+		} catch(err) {
+			//will handle errors
+			console.log('looks like no int was running');
+		} finally {
+			try {
+				pageInt = setInterval(memberRank, 1000);
+			} catch(err) {
+				//will handle errors
+				console.log('looks like memberRank already ran...');
+			} 
+		}
+	} else {
+		alert ('whoops!')
+	}
 }
 
 
@@ -57,4 +78,15 @@ if (ticketViewRegex.test(currPathName)) {
 //how to clear method intervals on page change
 
 
+//Sample Try Catch
+/*
+try {
+	clearInterval(pageInt);
+} catch(err) {
+	//will handle errors
+	console.log('looks like no int was running');
+} finally {
+	pageInt = setInterval(findr, 1000);
+}
 
+*/
