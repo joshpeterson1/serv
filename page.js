@@ -70,6 +70,7 @@ var readingInt;
 	}
 }
 
+//var read = setInterval(reading, 1000);
 
 //Need to get Try Catch down. When memberRank is ran twice it throws an error. I need to handle that,
 //also gonna need to clear Intervals that might no exist so i'll need to handle those errors as well.
