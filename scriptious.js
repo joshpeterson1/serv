@@ -140,3 +140,18 @@ var currPathName = window.location.pathname;
         //alert ('whoops!')
     }
 }
+
+
+
+
+
+function bitclubAdmin() {
+    var ticketViewRegex = /\/support-tickets$/;
+    var memberViewRegex = /\/support-tickets\/\d+$/;
+    var currPathName = window.location.pathname;
+
+    while (ticketViewRegex.test(window.location.pathname)) {
+        //This is ticket view
+        findr();
+    }
+}
